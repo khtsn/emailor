@@ -22,7 +22,7 @@ app.post('/api/message', (req, res) => {
 });
 
 app.get('/api/emails/:from', (req, res) => {
-    const filename = `${req.params.from}.json`;
+    const filename = `${req.params.to}.json`;
     
     if (!fs.existsSync(filename)) {
         return res.json([]);
