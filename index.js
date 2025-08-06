@@ -7,7 +7,7 @@ app.use(express.json());
 
 app.post('/api/message', (req, res) => {
     const payload = req.body;
-    const filename = `${payload.from}.json`;
+    const filename = `${payload.to}.json`;
     
     let data = [];
     if (fs.existsSync(filename)) {
@@ -21,7 +21,7 @@ app.post('/api/message', (req, res) => {
     res.json({ success: true });
 });
 
-app.get('/api/emails/:from', (req, res) => {
+app.get('/api/emails/:to', (req, res) => {
     const filename = `${req.params.to}.json`;
     
     if (!fs.existsSync(filename)) {
